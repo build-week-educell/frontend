@@ -17,25 +17,28 @@ class Login extends Component {
 
     render() { 
         return ( 
-            <form>
-                <input 
-                    type='text'
-                    placeholder='enter email'
-                    value={this.state.username}
-                    onChange={this.handleInputChange}
-                    name='username'
-                />
-                <input 
-                    type='password'
-                    placeholder='enter password'
-                    value={this.state.password}
-                    onChange={this.handleInputChange}
-                    name="password"
-                />
+            <div>
+                <form>
+                    <input
+                        type='text'
+                        placeholder='enter email'
+                        value={this.state.username}
+                        onChange={this.handleInputChange}
+                        name='username'
+                    />
+                    <input
+                        type='password'
+                        placeholder='enter password'
+                        value={this.state.password}
+                        onChange={this.handleInputChange}
+                        name="password"
+                    />
 
-                <button>Log In</button>
+                    <button>Log In</button>
 
-            </form>
+                </form>
+            </div>
+            
          );
     }
 }
