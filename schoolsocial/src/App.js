@@ -12,7 +12,7 @@ class App extends Component {
       .then( response => console.log(response) )
       .catch( error => console.log(error) )
   }
-  
+
   render() {
     return (
       <div className="App">
