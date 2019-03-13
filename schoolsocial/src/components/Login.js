@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 class Login extends Component {
     constructor(props) {
@@ -15,10 +16,34 @@ class Login extends Component {
         })
     }
 
+    login = event => {
+        event.preventDefault() //anytime you use on submit for a form 
+
+        const { username, password } = this.state; 
+        let user = { username, password } 
+
+        axios
+            .post('https://educell.herokuapp.com/api/login', user)
+            .then( response => {
+                if (response.status === 200) {
+                    console.log(response.data)
+                    //if registration is succesful which is this check, then redirect to log in.
+                }
+                else {
+                    throw new Error() //error if something went wrong 
+                }
+            })
+            .catch(error => {
+                console.log(error);
+            })
+    }
+
     render() { 
         return ( 
             <div>
-                <form>
+                <form
+                    onSubmit={this.login}
+                >
                     <input
                         type='text'
                         placeholder='enter email'
@@ -34,7 +59,9 @@ class Login extends Component {
                         name="password"
                     />
 
-                    <button>Log In</button>
+                    <button
+                        onClick={this.login}
+                    >Log In</button>
 
                 </form>
             </div>
