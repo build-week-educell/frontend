@@ -56,7 +56,7 @@ class AddStudent extends Component {
          }
 
         axios
-            .post('https://educell.herokuapp.com/api/student', newStudent, { headers: { Authorization: localStorage.getItem('token') } })
+            .post('https://educell.herokuapp.com/api/student', { headers: { Authorization: localStorage.getItem('token') } }, newStudent)
 
             .then(response => {
                 if (response.status === 201) {
@@ -94,6 +94,7 @@ class AddStudent extends Component {
                 <form
                     onSubmit={this.addStudent}
                 >
+                    <h2>Student Name</h2>
                     <input
                         type='text'
                         placeholder='Student Name'
@@ -103,17 +104,51 @@ class AddStudent extends Component {
                     />
                     <br></br>
 
-                    <h2>Student Age</h2>
+
+                    <h2>Grade</h2>
                     <input
                         type='number'
-                        placeholder='Student First Name'
+                        placeholder='grade'
+                        value={this.state.grade}
+                        onChange={this.handleInputChange}
+                        name='grade'
+                    />
+                    <br></br>
+
+                    <h2>Background</h2>
+                    <input
+                        type='text'
+                        placeholder='Background Info'
+                        value={this.state.background}
+                        onChange={this.handleInputChange}
+                        name='background'
+                    />
+                    <br></br>
+
+{/* //make radio buttons */}
+
+                    <h2>Status</h2> 
+                    <input
+                        type='text'
+                        placeholder='Student Name'
+                        value={this.state.status}
+                        onChange={this.handleInputChange}
+                        name='status'
+                    />
+                    <br></br>
+
+                    <h2>Age</h2>
+                    <input
+                        type='number'
+                        placeholder='Student Age'
                         value={this.state.age}
                         onChange={this.handleInputChange}
                         name='age'
                     />
                     <br></br>
 
-                    <h2>Insurance</h2>
+                    {/* //make radio buttons */}
+                    <h2>Insurance Provided</h2>
                     <input
                         type='text'
                         placeholder='Y/N'
@@ -123,13 +158,45 @@ class AddStudent extends Component {
                     />
                     <br></br>
 
+
+                    <h2>Insurance Expiration</h2>
+                    <input
+                        type='number'
+                        placeholder='Insurance Expiration'
+                        value={this.state.insuranceExp}
+                        onChange={this.handleInputChange}
+                        name='insuranceExp'
+                    />
+                    <br></br>
+
                     <h2>Birth Certificate</h2>
                     <input
                         type='text'
                         placeholder='Y/N'
                         value={this.state.birthCertificate}
                         onChange={this.handleInputChange}
-                        name='birth certificate'
+                        name='birthCertificate'
+                    />
+                    <br></br>
+
+
+                    <h2>Special Needs Information</h2>
+                    <input
+                        type='text'
+                        placeholder='N/A'
+                        value={this.state.specialNeeds}
+                        onChange={this.handleInputChange}
+                        name='specialNeeds'
+                    />
+                    <br></br>
+
+                    <h2>Student Respresentative</h2>
+                    <input
+                        type='text'
+                        placeholder='N/A'
+                        value={this.state.representative}
+                        onChange={this.handleInputChange}
+                        name='representative'
                     />
                     <br></br>
 
@@ -137,15 +204,31 @@ class AddStudent extends Component {
                     <input
                         type='text'
                         placeholder='Enter Phone Number'
+                        value={this.state.contactInfo}
                         onChange={this.handleInputChange}
-                        name='phone number'
+                        name='contactInfo'
                     />
                     <br></br>
 
                     <button onClick={this.addStudent}>Submit</button>
                 </form>
-                <h2>Name</h2>
-                
+
+                  {/* name: '',
+                      grade: 0,
+                      background: '',
+                      status: '',
+                      age: 0,
+                      insurance: false,
+                      insuranceExp: '',
+                      birthCertificate: false,
+                      specialNeeds: '',
+                      representative: '',
+                      contactInfo: '', */}
+
+              
+              
+
+              
             </div>
          );
     }

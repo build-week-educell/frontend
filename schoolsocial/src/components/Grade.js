@@ -18,7 +18,7 @@ class Grade extends Component {
 
     componentDidMount() {
         axios
-            .get('https://educell.herokuapp.com/students')
+            .get('https://educell.herokuapp.com/api/students')
             .then(response => {
                 this.setState({
                     students: response.data

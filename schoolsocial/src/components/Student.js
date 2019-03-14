@@ -16,7 +16,7 @@ class Students extends Component {
     componentDidMount() {
         const id = this.props.location.pathname
         axios
-            .get(`https://educell.herokuapp.com/students/${id}`)
+            .get(`https://educell.herokuapp.com/api/students/${id}`)
             .then(response => {
                 this.setState({
                     student: response.data
