@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
+import { Button, Form, FormGroup, Label, Input, FormText, Col } from 'reactstrap';
+
+
 class AddStudent extends Component {
     constructor(props) {
         super(props);
@@ -42,6 +45,18 @@ class AddStudent extends Component {
             contactInfo} = this.state;
 
         let newStudent = {
+            // name: "bobbyguy",
+            // grade: 1,
+            // background: "story",
+            // statusAtschool: "student",
+            // age: "12",
+            // insuranceCard: true,
+            // insuranceCardexpires: "123",
+            // birthcertificate: "true",
+            // specialneeds: "no",
+            // representative: "Sally",
+            // contactinfo: "123"
+
             name,
             grade,
             background,
@@ -56,7 +71,7 @@ class AddStudent extends Component {
          }
 
         axios
-            .post('https://educell.herokuapp.com/api/student', { headers: { Authorization: localStorage.getItem('token') } }, newStudent)
+            .post('https://educell.herokuapp.com/api/student', newStudent, { headers: { Authorization: localStorage.getItem('token') } })
 
             .then(response => {
                 if (response.status === 201) {
@@ -82,7 +97,7 @@ class AddStudent extends Component {
                 }
             })
             .catch(error => {
-                console.log(error);
+                console.log(error.message);
             })
         }
 
@@ -91,72 +106,133 @@ class AddStudent extends Component {
     render() { 
         return ( 
             <div>
-                <form
-                    onSubmit={this.addStudent}
-                >
-                    <h2>Student Name</h2>
-                    <input
-                        type='text'
-                        placeholder='Student Name'
-                        value={this.state.name}
-                        onChange={this.handleInputChange}
-                        name='name'
-                    />
-                    <br></br>
+                <form onSubmit={this.addStudent}>
 
+                <FormGroup>
+                    <Label for='studentName' sm={2}>Student Name</Label>
+                    <Col>
+                            <input
+                                type='text'
+                                placeholder='Enter Name'
+                                value={this.state.name}
+                                onChange={this.handleInputChange}
+                                name='name'
+                                id='studentName'
+                            />
+                    </Col>
+                        
+                </FormGroup>
+                
+                <FormGroup>
+                    <Label for='grade' sm={2}>Grade</Label>
+                        <Col>
+                                <input
+                                    type='number'
+                                    placeholder='grade'
+                                    value={this.state.grade}
+                                    onChange={this.handleInputChange}
+                                    name='grade'
+                                    id='grade'
+                                />
+                        </Col>
+                        
+                </FormGroup>
 
-                    <h2>Grade</h2>
-                    <input
-                        type='number'
-                        placeholder='grade'
-                        value={this.state.grade}
-                        onChange={this.handleInputChange}
-                        name='grade'
-                    />
-                    <br></br>
+                <FormGroup>
+                    <Label for='background' sm={2}>Background</Label>
+                        <Col>
+                            <input
+                                type='text'
+                                placeholder='Background Info'
+                                value={this.state.background}
+                                onChange={this.handleInputChange}
+                                name='background'
+                                id='background'
+                            />
+                        </Col>
+                </FormGroup>
+                    
+        
+                    <FormGroup>
+                        <Label for='status' sm={2}>Status</Label>
+                        <Col>
+                            <input
+                                type='text'
+                                placeholder='Student Name'
+                                value={this.state.status}
+                                onChange={this.handleInputChange}
+                                name='status'
+                                id='status'
+                            />
+                        </Col>
+                    </FormGroup>
 
-                    <h2>Background</h2>
-                    <input
-                        type='text'
-                        placeholder='Background Info'
-                        value={this.state.background}
-                        onChange={this.handleInputChange}
-                        name='background'
-                    />
-                    <br></br>
 
 {/* //make radio buttons */}
 
-                    <h2>Status</h2> 
-                    <input
-                        type='text'
-                        placeholder='Student Name'
-                        value={this.state.status}
-                        onChange={this.handleInputChange}
-                        name='status'
-                    />
-                    <br></br>
+                 
+                    
+                    <FormGroup>
+                        <Label for='age' sm={2}>Age</Label>
+                        <Col>
+                            <input
+                                type='number'
+                                placeholder='Student Age'
+                                value={this.state.age}
+                                onChange={this.handleInputChange}
+                                name='age'
+                                id='age'
+                            />
+                        </Col>
+                    </FormGroup>
 
-                    <h2>Age</h2>
-                    <input
-                        type='number'
-                        placeholder='Student Age'
-                        value={this.state.age}
-                        onChange={this.handleInputChange}
-                        name='age'
-                    />
-                    <br></br>
+                    <FormGroup>
+                        <Label for='insurance' sm={2}>Insurance</Label>
+                        <Col>
 
-                    {/* //make radio buttons */}
-                    <h2>Insurance Provided</h2>
-                    <input
-                        type='text'
-                        placeholder='Y/N'
-                        value={this.state.insurance}
-                        onChange={this.handleInputChange}
-                        name='insurance'
-                    />
-                    <br></br>
+                            {/* //make radio buttons */}
+                            
+                            <input
+                                type='text'
+                                placeholder='Y/N'
+                                value={this.state.insurance}
+                                onChange={this.handleInputChange}
+                                name='insurance'
+                                id='insurance'
+                            />
+
+                        </Col>
+                    </FormGroup>
+
+
+                    <FormGroup>
+                        <Label for='' sm={2}></Label>
+                        <Col>
+
+                        </Col>
+                    </FormGroup>
+
+                    <FormGroup>
+                        <Label for='' sm={2}></Label>
+                        <Col>
+
+                        </Col>
+                    </FormGroup>
+
+                    <FormGroup>
+                        <Label for='' sm={2}></Label>
+                        <Col>
+
+                        </Col>
+                    </FormGroup>
+
+
+
+
+                    
+
+                   
+                 
 
 
                     <h2>Insurance Expiration</h2>
@@ -210,7 +286,7 @@ class AddStudent extends Component {
                     />
                     <br></br>
 
-                    <button onClick={this.addStudent}>Submit</button>
+                    <Button color='primary' onClick={this.addStudent}>Submit</Button>
                 </form>
 
                   {/* name: '',
@@ -233,5 +309,6 @@ class AddStudent extends Component {
          );
     }
 }
+
  
 export default AddStudent;

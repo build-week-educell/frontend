@@ -27,22 +27,23 @@ class EditStudent extends Component {
     }
 
     componentDidMount() {
-        const id = this.props.location.pathname
+        const id = this.props.location.pathname.split("/")[2]
         axios
-            .get(`https://educell.herokuapp.com/api/students/${id}`)
+            .get(`https://educell.herokuapp.com/api/students/${id}`, { headers: { Authorization: localStorage.getItem('token') } })
             .then(response => {
+                let student = response.data[0]
                 this.setState({
-                    name: response.data.name,
-                    grade: response.data.grade,
-                    background: response.data.background,
-                    status: response.data.status,
-                    age: response.data.age,
-                    insurance: response.data.insurance,
-                    insuranceExp: response.data.insuranceExp,
-                    birthCertificate: response.data.birthCertificate,
-                    specialNeeds: response.data.specialNeeds,
-                    representative: response.data.representative,
-                    contactInfo: response.data.contactInfo,
+                    name: student.name,
+                    grade: student.grade,
+                    background: student.background,
+                    status: student.status,
+                    age: student.age,
+                    insurance: student.insurance,
+                    insuranceExp: student.insuranceExp,
+                    birthCertificate: student.birthCertificate,
+                    specialNeeds: student.specialNeeds,
+                    representative: student.representative,
+                    contactInfo: student.contactInfo,
                     id: id
                 })
             })
@@ -80,7 +81,7 @@ class EditStudent extends Component {
         }
 
         axios
-            .put(`https://educell.herokuapp.com/api/student/${id}`, newStudent)
+            .put(`https://educell.herokuapp.com/api/students/${this.state.id}`, newStudent, { headers: { Authorization: localStorage.getItem('token') } })
             .then(response => {
                 if (response.status === 200) {
                     console.log(response.data)
@@ -100,7 +101,7 @@ class EditStudent extends Component {
 
     deleteStudent = () => {
         axios
-            .delete(`https://educell.herokuapp.com/api/student/${id}`)
+            .delete(`https://educell.herokuapp.com/api/students/${this.state.id}`, { headers: { Authorization: localStorage.getItem('token') } })
             .then(response => {
                 console.log(response);
                 alert("Student Was Deleted")
@@ -154,7 +155,7 @@ class EditStudent extends Component {
                         placeholder='Y/N'
                         value={this.state.birthCertificate}
                         onChange={this.handleInputChange}
-                        name='birth certificate'
+                        name='birthCertificate'
                     />
                     <br></br>
 
@@ -162,14 +163,16 @@ class EditStudent extends Component {
                     <input
                         type='text'
                         placeholder='Enter Phone Number'
+                        value={this.state.contactInfo}
                         onChange={this.handleInputChange}
-                        name='phone number'
+                        name='contactInfo'
                     />
                     <br></br>
 
-                    <button onClick={this.EditStudent}>Submit</button>
+                    <button onClick={this.editStudent}>Submit</button>
+                    <button onClick={this.deleteStudent}>Delete</button>
                 </form>
-                <h2>Name</h2>
+                
 
             </div>
         );

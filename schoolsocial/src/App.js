@@ -8,23 +8,32 @@ import Students from './components/Students';
 import Login from './components/Login';
 import Student from './components/Student';
 import Grade from './components/Grade';
+import EditStudent from './components/EditStudent';
 
-import axios from 'axios';
-import { Route, NavLink } from 'react-router-dom';
+import { Route, NavLink, Redirect } from 'react-router-dom';
 
 
 class App extends Component {
+  constructor(props) {
+    super(props)
 
-  test = event =>{
-    axios
-      .get('https://educell.herokuapp.com/')
-      .then( response => console.log(response) )
-      .catch( error => console.log(error) )
   }
+ logOut = () => {
+   localStorage.clear()
+   this.props.history.push('/login')
 
+ }
+
+
+//log out redirect to log in page
+//sign up redirect to log in page
+//log in redirect to students page
+//delete student redirect to students page
+//edit redirect to student page 
   render() {
     return (
       <div className="App">
+
         <NavLink to='/signup'>Sign Up</NavLink>
           <Route exact path='/signup' component={Signup} />
         <br></br>
@@ -39,12 +48,17 @@ class App extends Component {
 
           <NavLink to='/add'>Add Student</NavLink>
             <Route exact path="/add" component={AddStudent} />
-          
-        <Route path='/student/:id' render={(props) => <Student {...props}  />} />
 
-        <Route path='/student/:id/edit' render={(props) => <Student {...props} />} />
+        <br></br>
 
+        <NavLink to='/grade'>Seach By Grade</NavLink>
         <Route exact path='/grade' component={Grade} />
+          
+        <Route exact path='/student/:id' render={(props) => <Student {...props}  />} />
+
+        <Route exact path='/student/:id/edit' render={(props) => <EditStudent {...props} />} />
+
+        <button onClick={this.logOut}>Log Out</button>
 
       </div>
       

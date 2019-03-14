@@ -18,7 +18,7 @@ class Grade extends Component {
 
     componentDidMount() {
         axios
-            .get('https://educell.herokuapp.com/api/students')
+            .get('https://educell.herokuapp.com/api/students', { headers: { Authorization: localStorage.getItem('token') } })
             .then(response => {
                 this.setState({
                     students: response.data
@@ -29,11 +29,8 @@ class Grade extends Component {
 
     handleInputChange = e => {
         this.setState({ [e.target.name]: e.target.value });
-
-        const filtered = this.state.students.filter(student => {
-            return student.grade.includes(this.state.searchInput);
-        });
-
+        const filtered = this.state.students.filter( student => student.grade === this.state.searchInput);
+            console.log(filtered);
         this.setState({
             filteredStudents: filtered
         });
@@ -48,6 +45,7 @@ class Grade extends Component {
                     placeholder='Enter A Grade'
                     onChange={this.handleInputChange}
                     value={this.state.searchInput}
+                    name='searchInput'
                 />
                 {this.state.filteredStudents.map( student => {
                     return (

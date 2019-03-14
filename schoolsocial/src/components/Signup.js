@@ -27,7 +27,7 @@ class Signup extends Component {
         let newUser = { username, name, contactInfo, password, organization } 
 
         axios
-            .post('https://educell.herokuapp.com/api/register', newUser)
+            .post('https://educell.herokuapp.com/api/register', newUser, { headers: { Authorization: localStorage.getItem('token') } })
             .then( response => {
                 if (response.status === 201) {
                     console.log(response.data)
