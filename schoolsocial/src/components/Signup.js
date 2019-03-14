@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 class Signup extends Component {
     constructor(props) {
         super(props);
         this.state = { 
-            firstName: '',
-            lastName:'',
-            password:''
+            name: '',
+            username: '',
+            contactInfo: '',
+            organization: '',
+            password: ''
          }
     }
 
@@ -16,24 +19,66 @@ class Signup extends Component {
             [event.target.name] : event.target.value 
         })
     }
+
+    signUp = event => {
+        event.preventDefault() //anytime you use on submit for a form 
+        
+        const { name, username, contactInfo, organization, password, } = this.state; 
+        let newUser = { username, name, contactInfo, password, organization } 
+
+        axios
+            .post('https://educell.herokuapp.com/api/register', newUser)
+            .then( response => {
+                if (response.status === 201) {
+                    console.log(response.data)
+                    //if registration is succesful which is this check, then redirect to log in.
+                } 
+                else {
+                    throw new Error() //error if something went wrong 
+                }
+            })
+            .catch ( error => {
+                console.log(error);
+            })
+
+
+    }
     render() { 
         return ( 
             <div>
                 <h1>Sign Up</h1>
-                <form>
+                <form
+                    onSubmit={this.signUp}
+                >
                     <input 
                         type='text'
-                        placeholder='Enter First Name'
-                        name='first name'
-                        value={this.state.firstName}
+                        placeholder='name'
+                        name='name'
+                        value={this.state.name}
                         onChange={this.handleInputChange}
                     />
 
                     <input 
                         type='text'
-                        placeholder='Enter Last Name'
-                        name='last name'
-                        value={this.state.lastName}
+                        placeholder='username'
+                        name='username'
+                        value={this.state.username}
+                        onChange={this.handleInputChange}
+                    />
+
+                    <input
+                        type='text'
+                        placeholder='contact info'
+                        name='contactInfo'
+                        value={this.state.contactInfo}
+                        onChange={this.handleInputChange}
+                    />
+
+                    <input
+                        type='text'
+                        placeholder='organization'
+                        name='organization'
+                        value={this.state.organization}
                         onChange={this.handleInputChange}
                     />
 
@@ -45,7 +90,9 @@ class Signup extends Component {
                         onChange={this.handleInputChange}
                     />
 
-                    <button>Complete Sign Up</button>
+                    <button
+                        onClick={this.signUp}
+                    >Complete Sign Up</button>
 
                 </form>
             </div>
