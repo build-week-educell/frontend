@@ -23,7 +23,7 @@ class Login extends Component {
         let user = { username, password } 
 
         axios
-            .post('https://educell.herokuapp.com/api/login', user)
+            .post('https://educell.herokuapp.com/api/login', user, { headers: { Authorization: localStorage.getItem('token') } })
             .then( response => {
                 if (response.status === 200) {
                     localStorage.setItem('token', response.data.token) // token saved to local storage

@@ -14,18 +14,21 @@ class Students extends Component {
     }
 
     componentDidMount() {
-        const id = this.props.location.pathname
+        const id = this.props.location.pathname.split("/")[2]
+       
         axios
-            .get(`https://educell.herokuapp.com/api/students/${id}`)
+            .get(`https://educell.herokuapp.com/api/students/${id}`, { headers: { Authorization: localStorage.getItem('token') } })
             .then(response => {
                 this.setState({
-                    student: response.data
+                    student: response.data[0]
                 })
+                
             })
             .catch(error => console.log(error))
     }
 
     render() {
+        console.log(this.state.student)
         return (
             <div>
                 <div>{this.state.student.name}</div>
