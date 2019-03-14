@@ -26,6 +26,7 @@ class Login extends Component {
             .post('https://educell.herokuapp.com/api/login', user)
             .then( response => {
                 if (response.status === 200) {
+                    localStorage.setItem('token', response.data.token) // token saved to local storage
                     console.log(response.data)
                     //if registration is succesful which is this check, then redirect to log in.
                 }

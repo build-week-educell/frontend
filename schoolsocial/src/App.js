@@ -27,7 +27,7 @@ class App extends Component {
       <div className="App">
         <NavLink to='/signup'>Sign Up</NavLink>
           <Route exact path='/signup' component={Signup} />
-
+        <br></br>
         <NavLink to='/students'>Students</NavLink>
           <Route exact path='/students' component={Students} />
 
@@ -44,7 +44,7 @@ class App extends Component {
 
         <Route path='/student/:id/edit' render={(props) => <Student {...props} />} />
 
-        <Route path='/grade
+        <Route exact path='/grade' component={Grade} />
 
       </div>
       

@@ -56,7 +56,8 @@ class AddStudent extends Component {
          }
 
         axios
-            .post('https://educell.herokuapp.com/api/student', newStudent)
+            .post('https://educell.herokuapp.com/api/student', newStudent, { headers: { Authorization: localStorage.getItem('token') } })
+
             .then(response => {
                 if (response.status === 201) {
                     console.log(response.data)
