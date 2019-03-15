@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Redirect } from 'react-router-dom';
 
 class Login extends Component {
     constructor(props) {
         super(props);
         this.state = {  
             username: '',
-            password: ''
+            password: '',
+            authenticated: false
          }
     }
     
@@ -29,6 +31,9 @@ class Login extends Component {
                     localStorage.setItem('token', response.data.token) // token saved to local storage
                     console.log(response.data)
                     //if registration is succesful which is this check, then redirect to log in.
+                    this.setState({
+                        authenticated: true
+                    })
                 }
                 else {
                     throw new Error() //error if something went wrong 
@@ -40,6 +45,9 @@ class Login extends Component {
     }
 
     render() { 
+        if (this.state.authenticated === true) {
+            return <Redirect to='/students' />
+        }
         return ( 
             <div>
                 <form

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import './styles/App.css';
 
 //import StudentForm from './components/Student Components/StudentForm';
 import Signup from './components/Signup';
@@ -19,8 +19,8 @@ class App extends Component {
 
   }
  logOut = () => {
-   localStorage.clear()
-   this.props.history.push('/login')
+   window.localStorage.clear()
+   
 
  }
 
@@ -37,8 +37,14 @@ class App extends Component {
         <NavLink to='/signup'>Sign Up</NavLink>
           <Route exact path='/signup' component={Signup} />
         <br></br>
+
         <NavLink to='/students'>Students</NavLink>
           <Route exact path='/students' component={Students} />
+
+        <br></br>
+
+        <NavLink to='/grade'>Seach By Grade</NavLink>
+        <Route exact path='/grade' component={Grade} />
 
         <br></br>
         <NavLink to='/login'>Login</NavLink>
@@ -51,8 +57,8 @@ class App extends Component {
 
         <br></br>
 
-        <NavLink to='/grade'>Seach By Grade</NavLink>
-        <Route exact path='/grade' component={Grade} />
+        
+
           
         <Route exact path='/student/:id' render={(props) => <Student {...props}  />} />
 
