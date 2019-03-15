@@ -1,5 +1,3 @@
-//show all students 
-//get request to all students 
 
 import React, { Component } from 'react';
 import axios from 'axios';
@@ -27,13 +25,19 @@ class Grade extends Component {
             .catch(error => console.log(error))
     }
 
-    handleInputChange = e => {
-        this.setState({ [e.target.name]: e.target.value });
-        const filtered = this.state.students.filter( student => student.grade === this.state.searchInput);
-            console.log(filtered);
+    filter = () => {
+        const filtered = this.state.students.filter( student => {
+            return student.grade == this.state.searchInput
+        });
         this.setState({
             filteredStudents: filtered
         });
+    }
+
+    handleInputChange = event => {
+        this.setState({
+            searchInput: event.target.value
+        }, () => this.filter())
     };
 
     
