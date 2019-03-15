@@ -109,6 +109,7 @@ class AddStudent extends Component {
       .catch(error => {
         console.log(error.message);
       });
+      this.props.history.push('/students')
   };
 
   //make booleans toggle button

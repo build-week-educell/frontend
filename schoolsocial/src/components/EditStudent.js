@@ -114,16 +114,18 @@ class EditStudent extends Component {
       .catch(error => {
         console.log(error);
       });
+      this.props.history.push('/students');
   };
-
-  deleteStudent = () => {
+ //CJ says this is good code learn this 
+  deleteStudent = e => {
+    e.preventDefault();
     axios
       .delete(`https://educell.herokuapp.com/api/students/${this.state.id}`, {
         headers: { Authorization: localStorage.getItem("token") }
       })
       .then(response => {
         console.log(this.props.history);
-        this.props.history.push('/')
+        this.props.history.push('/students');
 
         
       })
@@ -131,6 +133,7 @@ class EditStudent extends Component {
       .catch(err => {
         console.log(err);
       });
+    
   };
 
   //make booleans toggle button

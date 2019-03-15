@@ -1,0 +1,13 @@
+.StudentList {
+    display: flex;
+    
+}
+.studentCard a {
+    display: flex;
+    width: 100%;
+    text-align: center;
+}
+
+.studentCard {
+    width: 100%;
+}
