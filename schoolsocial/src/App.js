@@ -42,6 +42,11 @@ class App extends Component {
           <Route exact path='/students' component={Students} />
 
         <br></br>
+
+        <NavLink to='/grade'>Seach By Grade</NavLink>
+        <Route exact path='/grade' component={Grade} />
+
+        <br></br>
         <NavLink to='/login'>Login</NavLink>
           <Route exact path='/login' component={Login} />
 
@@ -52,8 +57,8 @@ class App extends Component {
 
         <br></br>
 
-        <NavLink to='/grade'>Seach By Grade</NavLink>
-        <Route exact path='/grade' component={Grade} />
+        
+
           
         <Route exact path='/student/:id' render={(props) => <Student {...props}  />} />
 

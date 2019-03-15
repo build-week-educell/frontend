@@ -172,7 +172,7 @@ class AddStudent extends Component {
             <Col>
               <input
                 type="text"
-                placeholder="Student Name"
+                placeholder="Current/Previous"
                 value={this.state.status}
                 onChange={this.handleInputChange}
                 name="status"
@@ -221,7 +221,7 @@ class AddStudent extends Component {
               <Col>
                 <input
                   type="number"
-                  placeholder="Example - 9/2020"
+                  placeholder="Ex - 09/2020"
                   value={this.state.insuranceExp}
                   onChange={this.handleInputChange}
                   name="insuranceExp"
