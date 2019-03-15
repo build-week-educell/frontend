@@ -27,15 +27,7 @@ class Students extends Component {
     render() { 
         return ( 
             <div>
-                <div>
-                    <div>name</div>
-                    <div>status</div>
-                    <div>age</div>
-                    <div>insurance</div>
-                    <div>Birth Cert</div>
-                    <div>representative</div>
-                    <div>Contact Info</div>
-                </div>
+                
                 {this.state.students.map( student => {
                     return (
                         <div key={student.id}>
