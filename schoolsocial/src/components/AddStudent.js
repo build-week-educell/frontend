@@ -222,7 +222,7 @@ class AddStudent extends Component {
               <Col>
                 <input
                   type="number"
-                  placeholder="Ex - 09/2020"
+                  placeholder="Month - Ex - 09"
                   value={this.state.insuranceExp}
                   onChange={this.handleInputChange}
                   name="insuranceExp"

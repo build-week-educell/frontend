@@ -46,7 +46,7 @@ class Signup extends Component {
     render() { 
         return ( 
             <div>
-                <h1>Sign Up</h1>
+                <h1 className='signUp'>Sign Up</h1>
                 <form
                     onSubmit={this.signUp}
                 >
@@ -92,6 +92,7 @@ class Signup extends Component {
 
                     <button
                         onClick={this.signUp}
+                        className='waves-effect waves-light btn edit'
                     >Complete Sign Up</button>
 
                 </form>

@@ -307,8 +307,8 @@ class EditStudent extends Component {
          
          
 
-          <button onClick={this.editStudent}>Submit</button>
-          <button onClick={this.deleteStudent}>Delete</button>
+          <button className='waves-effect waves-light btn edit' onClick={this.editStudent}>Submit</button>
+          <button className='waves-effect waves-light btn edit' onClick={this.deleteStudent}>Delete</button>
         </form>
       </div>
     );

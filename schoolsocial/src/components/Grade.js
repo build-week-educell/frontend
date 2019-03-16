@@ -53,15 +53,16 @@ class Grade extends Component {
                 />
                 {this.state.filteredStudents.map( student => {
                     return (
-                        <div key={student.id}>
+                        <div key={student.id} className='card-panel blue-grey search'>
                             <Link to={`/student/${student.id}`}>
-                                    <div>{student.name}</div>
-                                    <div>{student.status}</div>
-                                    <div>{student.age}</div>
-                                    <div>{student.insurance}</div>
-                                    <div>{student.birthCertificate}</div>
-                                    <div>{student.representative}</div>
-                                    <div>{student.contactInfo}</div>
+                                    <div>Name: {student.name}</div>
+                                    <div>Grade: {student.grade}</div>
+                                    <div>Status: {student.status}</div>
+                                    <div>Age: {student.age}</div>
+                                    <div>Insurance: {student.insurance}</div>
+                                    <div>BirthCertificate: {student.birthCertificate}</div>
+                                    <div>Representative: {student.representative}</div>
+                                    <div>Phone Number: {student.contactInfo}</div>
                             </Link> 
                         </div>
                     )

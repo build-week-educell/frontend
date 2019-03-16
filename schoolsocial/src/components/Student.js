@@ -41,7 +41,7 @@ class Students extends Component {
                 <div>Insurance Exp: {this.state.student.insuranceExp}</div>
                 <div>Birth Certificate: {this.state.student.birthCertificate}</div>
                 <div>Representative: {this.state.student.representative}</div>
-                <div>contactInfo: {this.state.student.contactInfo}</div>
+                <div>Phone Number: {this.state.student.contactInfo}</div>
                 <Link className='waves-effect waves-light btn edit' to={`/student/${this.state.student.id}/edit`}>Edit</Link>
             </div>
         );

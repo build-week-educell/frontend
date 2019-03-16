@@ -71,6 +71,7 @@ class Login extends Component {
 
                     <button
                         onClick={this.login}
+                        className='waves-effect waves-light btn edit'
                     >Log In</button>
 
                 </form>

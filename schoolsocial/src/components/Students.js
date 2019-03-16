@@ -36,7 +36,7 @@ class Students extends Component {
         </div>
         {this.state.students.map(student => {
           return (
-            <div className="studentCard card " key={student.id}>
+            <div className="studentCard card blue-grey white-text" key={student.id}>
               
               <Link  className='row' to={`/student/${student.id}`}>
             
