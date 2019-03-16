@@ -280,7 +280,7 @@ class AddStudent extends Component {
           </FormGroup>
 
 
-          <Button color="primary" onClick={this.addStudent}>
+          <Button className='waves-effect waves-light btn' onClick={this.addStudent}>
             Submit
           </Button>
         </form>

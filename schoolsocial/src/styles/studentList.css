@@ -6,8 +6,31 @@
     display: flex;
     width: 100%;
     text-align: center;
+    color: black;
+    text-decoration: none;
 }
 
 .studentCard {
     width: 100%;
+   
 }
+
+.studentHead {
+    display: flex;
+    width: 100%;
+    text-align: center;
+   
+    margin-top: 20px;
+}
+
+.nav-wrapper {
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+}
+
+.btn {
+    margin-top: 14px;
+}
+
+
