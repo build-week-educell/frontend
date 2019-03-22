@@ -15,22 +15,28 @@ class Navigation extends Component {
 
     }
     render() { 
-        return ( 
-        <nav >
-                <div className='nav-wrapper' >
-                    
-                    <NavLink to='/students'>Students</NavLink>
-                    <NavLink to='/grade'>Seach By Grade</NavLink>
-                    <NavLink to='/signup'>Sign Up</NavLink>
-                    <NavLink to='/add'>Add Student</NavLink>
-                    <NavLink className='decoration' to='/login'>Login</NavLink>
-                    <button className='waves-effect waves-light btn' onClick={this.logOut}>Log Out</button>
-                </div>
-        </nav>
-           
-            
-
-         );
+        return (
+          <nav>
+            <div className="nav-wrapper">
+              <NavLink to="/students">Students</NavLink>
+              <NavLink to="/grade">Seach By Grade</NavLink>
+              <NavLink to="/signup">Sign Up</NavLink>
+              <NavLink to="/add">Add Student</NavLink>
+              {localStorage.token ? (
+                <button
+                  className="waves-effect waves-light btn"
+                  onClick={this.logOut}
+                >
+                  Log Out
+                </button>
+              ) : (
+                <NavLink className="decoration" to="/login">
+                  Login
+                </NavLink>
+              )}
+            </div>
+          </nav>
+        );
     }
 }
  

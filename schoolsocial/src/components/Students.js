@@ -27,11 +27,11 @@ class Students extends Component {
     return (
       <div className="StudentList row materialboxed">
       <div className='studentHead'>
-        <h3 className='col s2'>name</h3>
-        <h3 className='col s2'>status</h3>
-        <h3 className='col s2'>age</h3>
-        <h3 className='col s2'>insurance</h3>
-        <h3 className='col s2'>birth cert</h3>
+        <h3 className='col s2'>Name</h3>
+        <h3 className='col s2'>Status</h3>
+        <h3 className='col s2'>Age</h3>
+        <h3 className='col s2'>Insurance</h3>
+        <h3 className='col s2'>Birth Cert</h3>
         <h3 className='col s2'>Contact Info.</h3>
         </div>
         {this.state.students.map(student => {

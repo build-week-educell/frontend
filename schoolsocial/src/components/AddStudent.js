@@ -117,6 +117,7 @@ class AddStudent extends Component {
   render() {
     return (
       <div>
+        <h1 className="addStudentHead">Add A Student</h1>
         <form onSubmit={this.addStudent}>
           <FormGroup>
             <Label for="studentName" sm={2}>
@@ -173,7 +174,7 @@ class AddStudent extends Component {
             <Col>
               <input
                 type="text"
-                placeholder="Current/Previous"
+                placeholder="Current Student/Previous Student"
                 value={this.state.status}
                 onChange={this.handleInputChange}
                 name="status"
@@ -218,39 +219,41 @@ class AddStudent extends Component {
           </FormGroup>
 
           <FormGroup>
-            <Label for="insuranceExp" sm={3}>Insurance Expiration Date</Label>
-              <Col>
-                <input
-                  type="number"
-                  placeholder="Month - Ex - 09"
-                  value={this.state.insuranceExp}
-                  onChange={this.handleInputChange}
-                  name="insuranceExp"
-                  id='insuranceExp'
-                />
-              </Col>
+            <Label for="insuranceExp" sm={3}>
+              Insurance Expiration Date
+            </Label>
+            <Col>
+              <input
+                type="number"
+                placeholder="Month - 09"
+                value={this.state.insuranceExp}
+                onChange={this.handleInputChange}
+                name="insuranceExp"
+                id="insuranceExp"
+              />
+            </Col>
           </FormGroup>
 
           <FormGroup>
-            <Label for="" sm={2}>Birth Certificate</Label>
+            <Label for="" sm={2}>
+              Birth Certificate
+            </Label>
             <Col>
-
-            
               <input
                 type="text"
                 placeholder="Y/N"
                 value={this.state.birthCertificate}
                 onChange={this.handleInputChange}
                 name="birthCertificate"
-                id='birthCertificate'
+                id="birthCertificate"
               />
-            
-
             </Col>
           </FormGroup>
 
           <FormGroup>
-            <Label for="" sm={3}>Special Needs Info</Label>
+            <Label for="" sm={3}>
+              Special Needs Info
+            </Label>
             <Col>
               <input
                 type="text"
@@ -264,9 +267,10 @@ class AddStudent extends Component {
           </FormGroup>
 
           <FormGroup>
-            <Label for="" sm={3}>Contact Information</Label>
+            <Label for="" sm={3}>
+              Contact Information
+            </Label>
             <Col>
-              
               <input
                 type="text"
                 placeholder="Enter Phone Number"
@@ -275,14 +279,17 @@ class AddStudent extends Component {
                 name="contactInfo"
                 id="contactInfo"
               />
-
             </Col>
           </FormGroup>
 
-
-          <Button className='waves-effect waves-light btn' onClick={this.addStudent}>
-            Submit
-          </Button>
+          <div className="submitNewStudent">
+            <button
+              className="waves-effect waves-light btn"
+              onClick={this.addStudent}
+            >
+              Submit New Student 
+            </button>
+          </div>
         </form>
       </div>
     );

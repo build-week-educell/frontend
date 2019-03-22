@@ -116,7 +116,7 @@ class EditStudent extends Component {
       });
       this.props.history.push('/students');
   };
- //CJ says this is good code learn this 
+ //CJ says this is good code lol
   deleteStudent = e => {
     e.preventDefault();
     axios
@@ -127,13 +127,13 @@ class EditStudent extends Component {
         console.log(this.props.history);
         this.props.history.push('/students');
 
-        
+
       })
-      
+
       .catch(err => {
         console.log(err);
       });
-    
+
   };
 
   //make booleans toggle button
@@ -308,7 +308,13 @@ class EditStudent extends Component {
          
 
           <button className='waves-effect waves-light btn edit' onClick={this.editStudent}>Submit</button>
-          <button className='waves-effect waves-light btn edit' onClick={this.deleteStudent}>Delete</button>
+          <button
+            className="waves-effect waves-light btn deleteButton"
+            onClick={this.deleteStudent}
+          >
+            Delete
+          </button>
+          
         </form>
       </div>
     );
