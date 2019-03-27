@@ -8,11 +8,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 
-import { BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter as Router, withRouter } from "react-router-dom";
+
+const AppWithRouter = withRouter(App) //gives app ability to have things history and whatever route component comes with
 
 ReactDOM.render(
     <Router>
-        <App />
-    </Router>, document.getElementById('root'));
+        <AppWithRouter />
+    </Router>, 
+    document.getElementById('root'));
 
 

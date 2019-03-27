@@ -1,0 +1,81 @@
+
+.StudentList {
+    display: flex;
+    
+}
+.studentCard a {
+    display: flex;
+    width: 100%;
+    text-align: center;
+    color: black;
+    text-decoration: none;
+    
+}
+
+.studentCard {
+    width: 100%;
+   
+}
+
+.studentHead {
+    display: flex;
+    width: 100%;
+    text-align: center;
+   
+    margin-top: 20px;
+}
+
+.nav-wrapper {
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+}
+
+.btn {
+    margin-top: 14px;
+}
+
+.signUp {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.signUpForm {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    
+    
+
+}
+.signUpButton {
+  display: flex;
+  justify-content: center;
+}
+
+.addStudentHead {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+
+}
+
+.submitNewStudent {
+    display: flex;
+    justify-content: center;
+
+}
+
+.card-panel {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    width: 50%;
+
+}
+
+.deleteButton {
+    margin-left: 15px;
+}
+
+
+

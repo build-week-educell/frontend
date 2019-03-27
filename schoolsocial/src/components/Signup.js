@@ -40,63 +40,64 @@ class Signup extends Component {
             .catch ( error => {
                 console.log(error);
             })
-
+    this.props.history.push('/login')
 
     }
     render() { 
-        return ( 
-            <div>
-                <h1>Sign Up</h1>
-                <form
-                    onSubmit={this.signUp}
+        return (
+          <div>
+            <h1 className="signUp">Sign Up</h1>
+            <form onSubmit={this.signUp} className="signUpForm">
+              <input
+                type="text"
+                placeholder="name"
+                name="name"
+                value={this.state.name}
+                onChange={this.handleInputChange}
+              />
+
+              <input
+                type="text"
+                placeholder="username"
+                name="username"
+                value={this.state.username}
+                onChange={this.handleInputChange}
+              />
+
+              <input
+                type="text"
+                placeholder="contact info"
+                name="contactInfo"
+                value={this.state.contactInfo}
+                onChange={this.handleInputChange}
+              />
+
+              <input
+                type="text"
+                placeholder="organization"
+                name="organization"
+                value={this.state.organization}
+                onChange={this.handleInputChange}
+              />
+
+              <input
+                type="password"
+                placeholder="Create Password"
+                name="password"
+                value={this.state.password}
+                onChange={this.handleInputChange}
+              />
+              <div className='signUpButton'>
+                <button
+                  onClick={this.signUp}
+                  className="waves-effect waves-light btn edit signUpButton"
                 >
-                    <input 
-                        type='text'
-                        placeholder='name'
-                        name='name'
-                        value={this.state.name}
-                        onChange={this.handleInputChange}
-                    />
-
-                    <input 
-                        type='text'
-                        placeholder='username'
-                        name='username'
-                        value={this.state.username}
-                        onChange={this.handleInputChange}
-                    />
-
-                    <input
-                        type='text'
-                        placeholder='contact info'
-                        name='contactInfo'
-                        value={this.state.contactInfo}
-                        onChange={this.handleInputChange}
-                    />
-
-                    <input
-                        type='text'
-                        placeholder='organization'
-                        name='organization'
-                        value={this.state.organization}
-                        onChange={this.handleInputChange}
-                    />
-
-                    <input 
-                        type='password'
-                        placeholder='Create Password'
-                        name='password'
-                        value={this.state.password}
-                        onChange={this.handleInputChange}
-                    />
-
-                    <button
-                        onClick={this.signUp}
-                    >Complete Sign Up</button>
-
-                </form>
-            </div>
-         );
+                  Complete Sign Up
+                </button>
+              </div>
+            </form>
+          </div>
+        );
     }
 }
  

@@ -42,6 +42,7 @@ class Login extends Component {
             .catch(error => {
                 console.log(error);
             })
+            this.props.history.push('/add')
     }
 
     render() { 
@@ -70,6 +71,7 @@ class Login extends Component {
 
                     <button
                         onClick={this.login}
+                        className='waves-effect waves-light btn edit'
                     >Log In</button>
 
                 </form>

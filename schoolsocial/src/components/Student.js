@@ -27,23 +27,40 @@ class Students extends Component {
             .catch(error => console.log(error))
     }
 
+  
+
     render() {
-        console.log(this.state.student)
+        //console.log(this.state.student)
         return (
+          <div className="card-panel blue-grey">
             <div>
-                <div>{this.state.student.name}</div>
-                <div>{this.state.student.status}</div>
-                <div>{this.state.student.grade}</div>
-                <div>{this.state.student.background}</div>
-                <div>{this.state.student.specialNeeds}</div>
-                <div>{this.state.student.age}</div>
-                <div>{this.state.student.insurance}</div>
-                <div>{this.state.student.insuranceExp}</div>
-                <div>{this.state.student.birthCertificate}</div>
-                <div>{this.state.student.representative}</div>
-                <div>{this.state.student.contactInfo}</div>
-                <Link to={`/student/${this.state.student.id}/edit`}>Edit</Link>
+              <h1>Student Information</h1>
             </div>
+            <div>Name: {this.state.student.name}</div>
+            <div>Status: {this.state.student.status}</div>
+            <div>Grade: {this.state.student.grade}</div>
+            <div>Background: {this.state.student.background}</div>
+            <div>SpecialNeeds: {this.state.student.specialNeeds}</div>
+            <div>Age: {this.state.student.age}</div>
+            <div>Insurance: {this.state.student.insurance}</div>
+            <div>Insurance Exp: {this.state.student.insuranceExp}</div>
+            <div>
+              Birth Certificate: {this.state.student.birthCertificate}
+            </div>
+            <div>
+              Representative: {this.state.student.representative}
+            </div>
+            <div>Phone Number: {this.state.student.contactInfo}</div>
+            <div>
+              <Link
+                className="waves-effect waves-light btn edit"
+                to={`/student/${this.state.student.id}/edit`}
+              >
+                Edit
+              </Link>
+             
+            </div>
+          </div>
         );
     }
 }

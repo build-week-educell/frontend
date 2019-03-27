@@ -9,6 +9,7 @@ import Login from './components/Login';
 import Student from './components/Student';
 import Grade from './components/Grade';
 import EditStudent from './components/EditStudent';
+import Navigation from './components/Navigation';
 
 import { Route, NavLink, Redirect } from 'react-router-dom';
 
@@ -18,11 +19,7 @@ class App extends Component {
     super(props)
 
   }
- logOut = () => {
-   window.localStorage.clear()
-   
 
- }
 
 
 //log out redirect to log in page
@@ -34,37 +31,23 @@ class App extends Component {
     return (
       <div className="App">
 
-        <NavLink to='/signup'>Sign Up</NavLink>
-          <Route exact path='/signup' component={Signup} />
-        <br></br>
+          <Navigation />
 
-        <NavLink to='/students'>Students</NavLink>
-          <Route exact path='/students' component={Students} />
+        <Route exact path='/' component={Signup} />
 
-        <br></br>
+        <Route exact path='/students' component={Students} />
 
-        <NavLink to='/grade'>Seach By Grade</NavLink>
         <Route exact path='/grade' component={Grade} />
 
-        <br></br>
-        <NavLink to='/login'>Login</NavLink>
-          <Route exact path='/login' component={Login} />
+        <Route exact path='/login' component={Login} />
 
-        <br></br>
+        <Route exact path="/add" component={AddStudent} />
 
-          <NavLink to='/add'>Add Student</NavLink>
-            <Route exact path="/add" component={AddStudent} />
-
-        <br></br>
-
-        
-
-          
         <Route exact path='/student/:id' render={(props) => <Student {...props}  />} />
 
         <Route exact path='/student/:id/edit' render={(props) => <EditStudent {...props} />} />
 
-        <button onClick={this.logOut}>Log Out</button>
+      
 
       </div>
       

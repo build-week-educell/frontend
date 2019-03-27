@@ -114,23 +114,26 @@ class EditStudent extends Component {
       .catch(error => {
         console.log(error);
       });
+      this.props.history.push('/students');
   };
-
-  deleteStudent = () => {
+ //CJ says this is good code lol
+  deleteStudent = e => {
+    e.preventDefault();
     axios
       .delete(`https://educell.herokuapp.com/api/students/${this.state.id}`, {
         headers: { Authorization: localStorage.getItem("token") }
       })
       .then(response => {
         console.log(this.props.history);
-        this.props.history.push('/')
+        this.props.history.push('/students');
 
-        
+
       })
-      
+
       .catch(err => {
         console.log(err);
       });
+
   };
 
   //make booleans toggle button
@@ -304,8 +307,14 @@ class EditStudent extends Component {
          
          
 
-          <button onClick={this.editStudent}>Submit</button>
-          <button onClick={this.deleteStudent}>Delete</button>
+          <button className='waves-effect waves-light btn edit' onClick={this.editStudent}>Submit</button>
+          <button
+            className="waves-effect waves-light btn deleteButton"
+            onClick={this.deleteStudent}
+          >
+            Delete
+          </button>
+          
         </form>
       </div>
     );
