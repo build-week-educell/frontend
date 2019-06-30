@@ -26,26 +26,27 @@ class Students extends Component {
   render() {
     return (
       <div className="StudentList row materialboxed">
-      <div className='studentHead'>
-        <h3 className='col s2'>Name</h3>
-        <h3 className='col s2'>Status</h3>
-        <h3 className='col s2'>Age</h3>
-        <h3 className='col s2'>Insurance</h3>
-        <h3 className='col s2'>Birth Cert</h3>
-        <h3 className='col s2'>Contact Info.</h3>
+        <div className="studentHead">
+          <h3 className="col s2">Name</h3>
+          <h3 className="col s2">Status</h3>
+          <h3 className="col s2">Age</h3>
+          <h3 className="col s2">Insurance</h3>
+          <h3 className="col s2">Birth Cert</h3>
+          <h3 className="col s2">Contact Info.</h3>
         </div>
         {this.state.students.map(student => {
           return (
-            <div className="studentCard card blue-grey white-text" key={student.id}>
-              
-              <Link  className='row' to={`/student/${student.id}`}>
-            
-                  <div className='col s2' >{student.name}</div>
-                  <div className='col s2'>{student.status}</div>
-                  <div className='col s2'>{student.age}</div>
-                  <div className='col s2'>{student.insurance}</div>
-                  <div className='col s2'>{student.birthCertificate}</div>
-                  <div className='col s2'>{student.contactInfo}</div>
+            <div
+              className="studentCard card blue-grey white-text"
+              key={student.id}
+            >
+              <Link className="row" to={`/student/${student.id}`}>
+                <div className="col s2">{student.name}</div>
+                <div className="col s2">{student.status}</div>
+                <div className="col s2">{student.age}</div>
+                <div className="col s2">{student.insurance}</div>
+                <div className="col s2">{student.birthCertificate}</div>
+                <div className="col s2">{student.contactInfo}</div>
               </Link>
             </div>
           );
