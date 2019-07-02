@@ -20,7 +20,7 @@ class Signup extends Component {
   };
 
   signUp = event => {
-    event.preventDefault(); //anytime you use on submit for a form
+    event.preventDefault(); //anytime you use on submit for a form`
 
     const { name, username, contactInfo, organization, password } = this.state;
     let newUser = { username, name, contactInfo, password, organization };
@@ -45,56 +45,58 @@ class Signup extends Component {
   render() {
     return (
       <div>
-        <h1 className="signUp">Sign Up</h1>
-        <form onSubmit={this.signUp} className="signUpForm">
-          <input
-            type="text"
-            placeholder="name"
-            name="name"
-            value={this.state.name}
-            onChange={this.handleInputChange}
-          />
+        <div className="signUpPage">
+          <form onSubmit={this.signUp} className="signUpForm z-depth-4">
+            <h1 className="signUp">Sign Up</h1>
+            <input
+              type="text"
+              placeholder="name"
+              name="name"
+              value={this.state.name}
+              onChange={this.handleInputChange}
+            />
 
-          <input
-            type="text"
-            placeholder="username"
-            name="username"
-            value={this.state.username}
-            onChange={this.handleInputChange}
-          />
+            <input
+              type="text"
+              placeholder="username"
+              name="username"
+              value={this.state.username}
+              onChange={this.handleInputChange}
+            />
 
-          <input
-            type="text"
-            placeholder="contact info"
-            name="contactInfo"
-            value={this.state.contactInfo}
-            onChange={this.handleInputChange}
-          />
+            <input
+              type="text"
+              placeholder="contact info"
+              name="contactInfo"
+              value={this.state.contactInfo}
+              onChange={this.handleInputChange}
+            />
 
-          <input
-            type="text"
-            placeholder="organization"
-            name="organization"
-            value={this.state.organization}
-            onChange={this.handleInputChange}
-          />
+            <input
+              type="text"
+              placeholder="organization"
+              name="organization"
+              value={this.state.organization}
+              onChange={this.handleInputChange}
+            />
 
-          <input
-            type="password"
-            placeholder="Create Password"
-            name="password"
-            value={this.state.password}
-            onChange={this.handleInputChange}
-          />
-          <div className="signUpButton">
-            <button
-              onClick={this.signUp}
-              className="waves-effect waves-light btn edit signUpButton"
-            >
-              Complete Sign Up
-            </button>
-          </div>
-        </form>
+            <input
+              type="password"
+              placeholder="Create Password"
+              name="password"
+              value={this.state.password}
+              onChange={this.handleInputChange}
+            />
+            <div className="signUpButton">
+              <button
+                onClick={this.signUp}
+                className="waves-effect waves-light btn edit signUpButton"
+              >
+                Complete Sign Up
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
     );
   }
