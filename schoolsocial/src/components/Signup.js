@@ -92,7 +92,7 @@ class Signup extends Component {
                 onClick={this.signUp}
                 className="waves-effect waves-light btn edit signUpButton"
               >
-                Complete Sign Up
+                Sign Up
               </button>
             </div>
           </form>

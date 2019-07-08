@@ -1,5 +1,6 @@
 .StudentList {
   display: flex;
+  margin-top: 25px;
 }
 .studentCard a {
   display: flex;
@@ -53,7 +54,51 @@
   padding-bottom: 10px;
 }
 
+.login {
+  display: flex;
+  justify-content: center;
+}
+
+.loginPage {
+  display: flex;
+  justify-content: center;
+}
+
+.loginForm {
+  width: 50%;
+  margin-top: 100px;
+}
+
+.loginButton {
+  display: flex;
+  justify-content: center;
+}
+
+.addStudentPage {
+  display: flex;
+  justify-content: center;
+}
+
+.addStudentForm {
+  width: 50%;
+}
+
 .addStudentHead {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.editStudentPage {
+  display: flex;
+  justify-content: center;
+}
+
+.editStudentForm {
+  width: 50%;
+}
+
+.editStudentHead {
   margin-top: 10px;
   display: flex;
   justify-content: center;
@@ -77,4 +122,9 @@
 
 .deleteButton {
   margin-left: 15px;
+}
+
+.submitAndDeleteButton {
+  display: flex;
+  justify-content: space-evenly;
 }
