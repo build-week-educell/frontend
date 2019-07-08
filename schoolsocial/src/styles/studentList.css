@@ -128,3 +128,10 @@
   display: flex;
   justify-content: space-evenly;
 }
+
+.searchGrade {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
