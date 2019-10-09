@@ -48,6 +48,7 @@ class Login extends Component {
 
   render() {
     if (this.state.authenticated === true) {
+      // when log in works take them to students
       return <Redirect to="/students" />;
     }
     return (
